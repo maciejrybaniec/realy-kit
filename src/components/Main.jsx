@@ -13,7 +13,7 @@ class Main extends Component {
 
 export default Relay.createContainer(Main, {
   fragments: {
-    user: () => Relay.QL`
+    users: () => Relay.QL`
       fragment on User {
          id,
          name

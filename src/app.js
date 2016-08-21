@@ -18,10 +18,9 @@
 );
 
  ReactDOM.render(
-   <Relay.Renderer
-     environment={Relay.Store}
-     Container={Main}
-     queryConfig={new MainRoute()}
+   <Relay.RootContainer
+     Component={Main}
+     route={new MainRoute()}
    />,
    document.getElementById('root')
  );
