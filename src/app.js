@@ -1,3 +1,4 @@
+/* @flow */
 /**
  * Application main module.
  * @module Application
@@ -12,6 +13,14 @@
  import MainRoute from 'routes/MainRoute';
 
  import config from './config';
+
+ import UserModel from 'models/UserModel';
+
+ const user = new UserModel({
+     name: 'Maciej',
+     members: [],
+     active: true
+ });
 
  Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer(config.apiURL)

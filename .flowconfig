@@ -1,5 +1,16 @@
 [include]
-src
 
 [ignore]
-.*/node_modules/*
+
+.*/node_modules/fbjs/*
+.*/node_modules/config-chain/*
+.*/node_modules/npm/*
+
+[options]
+
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
+
+esproposal.class_instance_fields=enable
+unsafe.enable_getters_and_setters=true
+esproposal.decorators=ignore
