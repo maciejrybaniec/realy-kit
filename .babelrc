@@ -1,10 +1,6 @@
 {
     "plugins": [
         "react-hot-loader/babel",
-        "babel-plugin-syntax-flow",
-        "babel-plugin-syntax-decorators",
-        "babel-plugin-syntax-class-properties",
-        "babel-plugin-immutable-record",
         "transform-decorators-legacy",
         "./plugins/babelRelayPlugin",
 

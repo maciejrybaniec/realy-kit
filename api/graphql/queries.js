@@ -20,6 +20,10 @@ export default {
             return UserModel.findById(params.id).exec();
         }
     },
+    /*
+     * Sample query for users fetching.
+     * { "query": "{users{id, name}}" }
+     */
     users: {
         type: new GraphQLList(userType),
         resolve: (root, params, options) => {
