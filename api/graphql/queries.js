@@ -2,11 +2,14 @@ import {
   GraphQLList,
   GraphQLID,
   GraphQLNonNull,
-  GraphQLString
+  GraphQLString,
+  GraphQLObjectType
 } from 'graphql';
 
 import UserModel from './models/User';
 import userType from './types/user';
+import userListType from './types/userList';
+
 
 export default {
     user: {
@@ -22,12 +25,14 @@ export default {
     },
     /*
      * Sample query for users fetching.
-     * { "query": "{users{id, name}}" }
+     * { query={ userList{ users{ name, id } } } }
      */
-    users: {
-        type: new GraphQLList(userType),
-        resolve: (root, params, options) => {
-            return UserModel.find().exec();
+    userList: {
+        type: userListType,
+        resolve(root, params, options) {
+            return {
+                users: UserModel.find().exec()
+            };
         }
-    }
+    },
 }

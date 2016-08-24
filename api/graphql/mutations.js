@@ -5,36 +5,40 @@ import {
 
 import UserModel from './models/User';
 import userInputType from './types/userInput';
+import userType from './types/user';
 
 export default {
     /*
      * Sample mutation for add user.
      * {
-     *    "query": "mutation ($data: UserInput!) { addUser(data: $data) }",
+     *    "query": "mutation ($input: UserInput!) { addUser(input: $input) }",
      *        "variables": {
-     *           "data": {
+     *           "input": {
      *              "name": "Maciej Rybaniec"
      *           }
      *        }
      * }
      */
     addUser: {
-        type: GraphQLBoolean,
+        type: userType,
         args: {
-          data: {
-            name: 'data',
+          input: {
+            name: 'input',
             type: new GraphQLNonNull(userInputType)
           }
         },
         resolve(root, params, options) {
-          const userModel = new UserModel(params.data);
+          const userModel = new UserModel(params.input);
            userModel.save((error) => {
               if (error) {
                   throw new Error('Error adding user');
               }
            });
 
-          return true;
+          return {
+              id: 1,
+              name: 'Maciej'
+          };
         }
     }
 }

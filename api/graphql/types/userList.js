@@ -1,13 +1,13 @@
 import {
     GraphQLObjectType,
-    GraphQLList
+    GraphQLList,
     GraphQLString
 } from 'graphql';
 
 import userType from './user';
 
 export default new GraphQLObjectType({
-  name: 'Users',
+  name: 'UserList',
   fields: {
       users: {
           type: new GraphQLList(userType)

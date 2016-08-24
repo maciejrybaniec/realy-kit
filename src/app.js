@@ -30,6 +30,9 @@
    <Relay.RootContainer
      Component={Main}
      route={new MainRoute()}
+     onReadyStateChange={(readyState) => {
+         console.log(readyState);
+     }}
    />,
    document.getElementById('root')
  );
